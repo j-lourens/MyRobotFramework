@@ -10,7 +10,7 @@ Test Teardown     Log to Console    Uitgevoerd na elke test CASE
 
 *** Test Cases ***
 DemoHelloWorld
-    [Tags]    smoking
+    [Tags]    smoketest
     Log    Hallo Ebici
   
     
@@ -85,7 +85,7 @@ HealthCheck
     Press Keys    //input[@name="Service_Full_Name"]     ENTER
     ${Status}     Get Text    //td[@id="1State"]  
     Log   ${Status}  
-    Should Be Equal As Strings    Offline    ${Status}    
+    Should Be Equal As Strings    Online    ${Status}    
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
