@@ -12,7 +12,7 @@ Default Tags
 Demo Hello World
     [Tags]    smoking
     Log    Hallo Ebici
-    Log    ${SCOPEGLOBAL} 
+  
     
 FirstSeleniumTest  
    
