@@ -47,7 +47,27 @@ Accounts
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
+
+Agreements
+    Set Selenium Speed    0.3s
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
+    LoginKW    SADMIN
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]  
+    Click Element    //button[@title="First Level View Bar"]
+    Click Link    //a[@id="ui-id-97"]
+    Click Element    //button[@name="s_1_1_11_0"]
+    ${account}    FakerLibrary.Words
+    Input Text    //input[@name="Name"]     ${account}
+    Click Element    //td[@id="1Agreement_Status"]
     
+    Click Element    //button[@name="s_1_1_10_0"]
+    Click Element    //td[@id="1Name"]
+    Input Text    //input[@name="Name"]     ${account}
+    Click Element    //li[@name="Root"]
+    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
+
+
 *** Keywords ***
 LoginKW
     [Documentation]    
