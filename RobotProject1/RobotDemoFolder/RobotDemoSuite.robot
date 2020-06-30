@@ -104,7 +104,7 @@ HealthCheck
     Press Keys    //input[@name="Service_Full_Name"]     ENTER
     ${Status}     Get Text    //td[@id="1State"]  
     Log   ${Status}  
-    Should Be Equal As Strings    Online    ${Status}    
+    Should Be Equal As Strings    Offline    ${Status}    
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
