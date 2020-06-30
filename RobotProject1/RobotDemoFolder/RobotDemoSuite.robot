@@ -47,7 +47,7 @@ DemoMeetupAccountsBackup
     Click Element    //button[@title="First Level View Bar"]
     Click Link    //a[@id="ui-id-96"]
     Click Element    //button[@title="Second Level View Bar"]
-    Click Link    //a[@id="ui-id-115"]
+    Click Link    //a[@id="ui-id-118"]
     Click Element    //button[@name="s_1_1_10_0"]
     ${account}    FakerLibrary.Words    
     Input Text    //input[@name="Name"]    ${account}
@@ -122,7 +122,7 @@ HealthCheck
     Press Keys    //input[@name="Service_Full_Name"]     ENTER
     ${Status}     Get Text    //td[@id="1State"]  
     Log   ${Status}  
-    Should Be Equal As Strings    Online    ${Status}    
+    Should Be Equal As Strings    Offline    ${Status}    
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
@@ -149,7 +149,7 @@ account view is opened
     Click Element    //button[@title="First Level View Bar"]
     Click Link    //a[@id="ui-id-96"]
     Click Element    //button[@title="Second Level View Bar"]
-    Click Link    //a[@id="ui-id-115"]
+    Click Link    //a[@id="ui-id-118"]
     
 add new account
     Click Element    //button[@name="s_1_1_10_0"]
