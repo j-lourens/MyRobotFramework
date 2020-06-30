@@ -8,17 +8,7 @@ Test Teardown     Log to Console    Uitgevoerd na elke test CASE
    
 
 
-*** Test Cases ***
-DemoHelloWorld
-    [Tags]    smoketest
-    Log    Hallo Ebici
-  
-DemoMeetup  
-    Open Browser    https://www.bing.com/?toWww=1&redig=265A2057F3364080859C303119CE7D02    chrome
-    Input Text    //input[@name="q"]    ebicus
-    Press Keys    //input[@name="q"]    ENTER    
-    Sleep    3s
-    Close Browser    
+*** Test Cases ***  
  
 DemoMeetupAccounts 
     Given user is logged in
@@ -29,6 +19,27 @@ DemoMeetupAccounts
 
 
 
+HealthCheck
+    Set Selenium Speed    0.3s
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
+    Set Browser Implicit Wait    3s
+    LoginKW    SADMIN
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]
+    Click Element    //span[@class="siebui-icon-tb-sitemap ToolbarButtonOn"]
+    Wait Until Page Contains Element    //input[@id="sitemapFilterInput"] 
+    Input Text    //input[@id="sitemapFilterInput"]    server
+    Click Link    //a[@name="s_a_60"]
+    Click Element    //button[@title="Second Level View Bar"]
+    Click Link    //a[@id="ui-id-118"]
+    Click Element    //button[@name="s_2_1_17_0"]
+    Input Text    //input[@name="Service_Full_Name"]    JMS Receiver
+    Press Keys    //input[@name="Service_Full_Name"]     ENTER
+    ${Status}     Get Text    //td[@id="1State"]  
+    Log   ${Status}  
+    Should Be Equal As Strings    Online    ${Status}    
+    Click Element    //li[@name="Root"]
+    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
 
 
 
@@ -36,8 +47,16 @@ DemoMeetupAccounts
 
 
 
-
-
+DemoHelloWorld
+    [Tags]    smoketest
+    Log    Hallo Ebici
+  
+DemoMeetup  
+    Open Browser    https://www.bing.com/?toWww=1&redig=265A2057F3364080859C303119CE7D02    chrome
+    Input Text    //input[@name="q"]    ebicus
+    Press Keys    //input[@name="q"]    ENTER    
+    Sleep    3s
+    Close Browser 
 
 DemoMeetupAccountsBackup
     Set Selenium Speed    0.3s
@@ -105,27 +124,7 @@ Agreements
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
 
-HealthCheck
-    Set Selenium Speed    0.3s
-    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
-    Set Browser Implicit Wait    3s
-    LoginKW    SADMIN
-    Wait Until Page Contains Element    //button[@title="First Level View Bar"]
-    Click Element    //span[@class="siebui-icon-tb-sitemap ToolbarButtonOn"]
-    Wait Until Page Contains Element    //input[@id="sitemapFilterInput"] 
-    Input Text    //input[@id="sitemapFilterInput"]    server
-    Click Link    //a[@name="s_a_60"]
-    Click Element    //button[@title="Second Level View Bar"]
-    Click Link    //a[@id="ui-id-118"]
-    Click Element    //button[@name="s_2_1_17_0"]
-    Input Text    //input[@name="Service_Full_Name"]    JMS Receiver
-    Press Keys    //input[@name="Service_Full_Name"]     ENTER
-    ${Status}     Get Text    //td[@id="1State"]  
-    Log   ${Status}  
-    Should Be Equal As Strings    Offline    ${Status}    
-    Click Element    //li[@name="Root"]
-    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
-    Close Browser
+
 
 *** Keywords ***
 LoginKW
