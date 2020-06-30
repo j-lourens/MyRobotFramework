@@ -13,26 +13,33 @@ DemoHelloWorld
     [Tags]    smoketest
     Log    Hallo Ebici
   
+DemoMeetup  
+    Open Browser    https://www.bing.com/?toWww=1&redig=265A2057F3364080859C303119CE7D02    chrome
+    Input Text    //input[@name="q"]    ebicus
+    Press Keys    //input[@name="q"]    ENTER    
+    Sleep    3s
+    Close Browser    
+ 
+DemoMeetupAccounts 
+    Given user is logged in
+    When account view is opened
+    Then add new account
     
-FirstSeleniumTest  
-   
-    Open Browser    https://google.com    chrome
-    Input Text    name=q    Ebicus
-    Close Browser       
 
-LoginSeleniumTest
-    Set Selenium Speed    0.3s  
-    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome  
-    Input Text    id=s_swepi_1    SADMIN  
-    Input Text    id=s_swepi_2    SADMIN
-    Click Element    id=s_swepi_22   
-    Wait Until Page Contains Element    id=s_sctrl_tabScreen  
-    Click Element    id=siebui-toolbar-settings
-    Click Element    id=tb_item_4
-    Close Browser  
-    Log    Test Completed   
-    
-Accounts
+
+
+
+
+
+
+
+
+
+
+
+
+
+DemoMeetupAccountsBackup
     Set Selenium Speed    0.3s
     Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
     LoginKW    SADMIN
@@ -47,6 +54,18 @@ Accounts
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
+
+LoginSeleniumTest
+    Set Selenium Speed    0.3s  
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome  
+    Input Text    id=s_swepi_1    SADMIN  
+    Input Text    id=s_swepi_2    SADMIN
+    Click Element    id=s_swepi_22   
+    Wait Until Page Contains Element    id=s_sctrl_tabScreen  
+    Click Element    id=siebui-toolbar-settings
+    Click Element    id=tb_item_4
+    Close Browser  
+    Log    Test Completed 
 
 Agreements
     Set Selenium Speed    0.3s
@@ -100,4 +119,24 @@ LoginKW
     Input Text    //input[@name="SWEUserName"]    ${USER}
     Input Text    //input[@name="SWEPassword"]    ${USER}
     Click Link    //a[@id="s_swepi_22"]
+
+user is logged in
+    Set Selenium Speed    0.3s
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
+    LoginKW    SADMIN
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]
+    
+account view is opened
+    Click Element    //button[@title="First Level View Bar"]
+    Click Link    //a[@id="ui-id-96"]
+    Click Element    //button[@title="Second Level View Bar"]
+    Click Link    //a[@id="ui-id-115"]
+    
+add new account
+    Click Element    //button[@name="s_1_1_10_0"]
+    ${account}    FakerLibrary.Words    
+    Input Text    //input[@name="Name"]    ${account}
+    Click Element    //li[@name="Root"]
+    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
       
