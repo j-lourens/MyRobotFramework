@@ -116,7 +116,7 @@ HealthCheck
     Input Text    //input[@id="sitemapFilterInput"]    server
     Click Link    //a[@name="s_a_60"]
     Click Element    //button[@title="Second Level View Bar"]
-    Click Link    //a[@id="ui-id-115"]
+    Click Link    //a[@id="ui-id-118"]
     Click Element    //button[@name="s_2_1_17_0"]
     Input Text    //input[@name="Service_Full_Name"]    JMS Receiver
     Press Keys    //input[@name="Service_Full_Name"]     ENTER
