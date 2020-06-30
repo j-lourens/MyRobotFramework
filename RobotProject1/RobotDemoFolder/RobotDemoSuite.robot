@@ -32,7 +32,7 @@ LoginSeleniumTest
     Close Browser  
     Log    Test Completed   
     
-LoginSeleniumTestRecorded
+Accounts
     Set Selenium Speed    0.3s
     Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
     LoginKW    SADMIN
