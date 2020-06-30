@@ -5,7 +5,7 @@ Suite Setup       Log to Console    Uitgevoerd voor elke test SUITE
 Suite Teardown    Log to Console    Uitgevoerd na   elke test SUITE
 Test Setup        Log to Console    Uitgevoerd voor elke test CASE
 Test Teardown     Log to Console    Uitgevoerd na   elke test CASE
-Default Tags    
+   
 
 
 *** Test Cases ***
@@ -22,7 +22,7 @@ FirstSeleniumTest
 
 LoginSeleniumTest
     Set Selenium Speed    0.3s  
-    Open Browser    http://192.168.43.8:7777/ecommunications_enu/start.swe?SWECmd=Logoff    chrome  
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome  
     Input Text    id=s_swepi_1    SADMIN  
     Input Text    id=s_swepi_2    SADMIN
     Click Element    id=s_swepi_22   
@@ -34,19 +34,19 @@ LoginSeleniumTest
     
 LoginSeleniumTestRecorded
     Set Selenium Speed    0.3s
-    Open Browser    http://192.168.43.8:7777/ecommunications_enu/start.swe?SWECmd=Logoff&SWETS=1593460243503&SWEPreLd=1    chrome
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
     LoginKW    SADMIN
-    Wait Until Page Contains Element    id=s_sctrl_tabScreen  
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]  
     Click Element    //button[@title="First Level View Bar"]
     Click Link    //a[@id="ui-id-96"]
     Click Element    //button[@title="Second Level View Bar"]
-    Click Link    //a[@id="ui-id-118"]
+    Click Link    //a[@id="ui-id-115"]
     Click Element    //button[@name="s_1_1_10_0"]
-    ${fake}    FakerLibrary.Words
-    Input Text    //input[@name="Name"]    ${fake}
-    Click Element    //td[@id="2Account_Status"]
+    ${account}    FakerLibrary.Words    
+    Input Text    //input[@name="Name"]    ${account}
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
     
 *** Keywords ***
 LoginKW
