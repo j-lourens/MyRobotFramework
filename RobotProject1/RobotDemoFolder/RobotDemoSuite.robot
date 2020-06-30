@@ -63,10 +63,32 @@ Agreements
     Click Element    //button[@name="s_1_1_10_0"]
     Click Element    //td[@id="1Name"]
     Input Text    //input[@name="Name"]     ${account}
+    Press Keys    //input[@name="Name"]    ENTER    
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
 
+HealthCheck
+    Set Selenium Speed    0.3s
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
+    Set Browser Implicit Wait    3s
+    LoginKW    SADMIN
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]
+    Click Element    //span[@class="siebui-icon-tb-sitemap ToolbarButtonOn"]
+    Wait Until Page Contains Element    //input[@id="sitemapFilterInput"] 
+    Input Text    //input[@id="sitemapFilterInput"]    server
+    Click Link    //a[@name="s_a_60"]
+    Click Element    //button[@title="Second Level View Bar"]
+    Click Link    //a[@id="ui-id-115"]
+    Click Element    //button[@name="s_2_1_17_0"]
+    Input Text    //input[@name="Service_Full_Name"]    JMS Receiver
+    Press Keys    //input[@name="Service_Full_Name"]     ENTER
+    ${Status}     Get Text    //td[@id="1State"]  
+    Log   ${Status}  
+    Should Be Equal As Strings    Online    ${Status}    
+    Click Element    //li[@name="Root"]
+    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
 
 *** Keywords ***
 LoginKW
