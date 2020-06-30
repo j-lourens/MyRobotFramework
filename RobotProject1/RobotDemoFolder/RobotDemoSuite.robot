@@ -2,14 +2,14 @@
 Library    SeleniumLibrary
 Library    FakerLibrary
 Suite Setup       Log to Console    Uitgevoerd voor elke test SUITE
-Suite Teardown    Log to Console    Uitgevoerd na   elke test SUITE
+Suite Teardown    Log to Console    Uitgevoerd na elke test SUITE
 Test Setup        Log to Console    Uitgevoerd voor elke test CASE
-Test Teardown     Log to Console    Uitgevoerd na   elke test CASE
+Test Teardown     Log to Console    Uitgevoerd na elke test CASE
    
 
 
 *** Test Cases ***
-Demo Hello World
+DemoHelloWorld
     [Tags]    smoking
     Log    Hallo Ebici
   
