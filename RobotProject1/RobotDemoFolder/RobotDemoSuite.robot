@@ -55,9 +55,27 @@ DemoMeetupAccountsBackup
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
 
+Troubleticket
+    Set Selenium Speed    0.3s
+    Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome
+    LoginKW    SADMIN
+    Click Element    //button[@title="First Level View Bar"]
+    Click Link    //a[@id="ui-id-103"]
+    Click Element    //button[@title="Second Level View Bar"]
+    Click Link    //a[@id="ui-id-118"]
+    Click Element    //button[@name="s_1_1_13_0"]
+    Click Element    //span[@id="s_1_2_25_0_icon"]
+    Click Element    //td[@id="3Name"]
+    Click Element    xpath=(//span)[298]
+    Click Element    //td[@id="1Contact_Last_Name"]
+    Click Element    //li[@name="Root"]
+    Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
+    Close Browser
+
 LoginSeleniumTest
     Set Selenium Speed    0.3s  
     Open Browser    http://192.168.43.8:7777/ecommunications_enu    chrome  
+    
     Input Text    id=s_swepi_1    SADMIN  
     Input Text    id=s_swepi_2    SADMIN
     Click Element    id=s_swepi_22   
@@ -104,7 +122,7 @@ HealthCheck
     Press Keys    //input[@name="Service_Full_Name"]     ENTER
     ${Status}     Get Text    //td[@id="1State"]  
     Log   ${Status}  
-    Should Be Equal As Strings    Offline    ${Status}    
+    Should Be Equal As Strings    Online    ${Status}    
     Click Element    //li[@name="Root"]
     Click Element    xpath=(//button[@class="siebui-ctrl-btn appletButton"])[2]
     Close Browser
@@ -119,6 +137,7 @@ LoginKW
     Input Text    //input[@name="SWEUserName"]    ${USER}
     Input Text    //input[@name="SWEPassword"]    ${USER}
     Click Link    //a[@id="s_swepi_22"]
+    Wait Until Page Contains Element    //button[@title="First Level View Bar"]  
 
 user is logged in
     Set Selenium Speed    0.3s
